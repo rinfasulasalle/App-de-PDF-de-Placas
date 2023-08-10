@@ -15,6 +15,7 @@
       </ul>
     </nav>
     <h2>Bienvenido, <span id="placaMostrada"></span></h2>
+    
     <p>Los PDF asociados a su licencia son:</p>
     <ul id="pdfList"></ul>
     <script>
@@ -35,9 +36,10 @@
             pdfItem.textContent = pdfs_comunes[i];
             pdfListElement.appendChild(pdfItem);
         }
-    </script>  
-    
-    </div>
+    </script> 
+    </div> 
+
+    <embed src="/pdf/BM-8492-0.pdf" type="application/pdf" width="600px" height="800px"/>
     <script>
       // Obtener y mostrar la placa almacenada en localStorage
       var placaIngresada = localStorage.getItem("placaIngresada");
