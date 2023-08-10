@@ -19,7 +19,7 @@ def get_archivos_pdf(directorio):
             if archivo.lower().endswith(".pdf"):  # Compruebo si el archivo tiene extensión .pdf
                 archivos_pdf.append(archivo)  # Agrego el nombre del archivo a la lista
     return archivos_pdf
-#--
+# ----------------------------------------------------------
 def get_archivos_pdf_recursivo(directorio):
     # Verifica si el directorio es válido
     if not os.path.isdir(directorio):
@@ -37,7 +37,7 @@ def get_archivos_pdf_recursivo(directorio):
     # Combina las listas de archivos PDF en el directorio actual y sus subdirectorios
     return archivos_pdf + subarchivos_pdf
 # ----------------------------------------------------------
-# DATOS DE LA EMPRESA
+# Datos para cargar en la aplicación web
 LICENCIAS = get_matriculas('pdf/DATA LICENCIAS DE CONDUCIR DUMMIE.csv')
 PDFS = (get_archivos_pdf('pdf'))
 LOGO = 'https://store-images.s-microsoft.com/image/apps.31887.13527552335205219.79bdc359-aeae-43cd-ac4a-a9b8c2321785.972ea833-efd0-4edd-b0dc-20ea591f449f'
