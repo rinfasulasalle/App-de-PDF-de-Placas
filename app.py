@@ -37,7 +37,7 @@ def home():
     return render_template("home.html",data= data)
 
 @app.route('/asociados')
-def home():
+def asociados():
     data = {
         'nombreApp': NOMBREAPP,
         'titulo': 'PDFs asociados',
