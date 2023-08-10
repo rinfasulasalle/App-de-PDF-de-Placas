@@ -53,7 +53,9 @@ Esta es una aplicación web desarrollada con Flask y Jinja, y utiliza el framewo
 
 ## Video demo
 
-[Ver video](images\demo.mkv)
+<video controls width="500">
+  <source src="/images/demo.mkv" type="video/x-matroska">
+</video>
 
 ## Estructura del Proyecto
 
