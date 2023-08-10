@@ -15,11 +15,32 @@
       </ul>
     </nav>
     <h2>Bienvenido, <span id="placaMostrada"></span></h2>
-    <p>Los PDF asociados a su lincencia son:</p>
-    <!-- Quiero mostrar los pdfs que coincidan con  placaMostrada, los pdfs estan en data.pdfs-->
+    <p>Los PDF asociados a su licencia son:</p>
+    <ul id="pdfList"></ul>
+    <script>
+        const placaCargada = localStorage.getItem("placaIngresada"); // Placa ingresada
+        const pdfs = JSON.parse('{{ data.pdfs | tojson }}'); // Lista de nombres de pdfs
+        const pdfs_comunes = []
+        
+        for (let i in pdfs) {
+            if (pdfs[i].includes(placaCargada)) { 
+                pdfs_comunes.push(pdfs[i]);
+            }
+        }
+
+        const pdfListElement = document.getElementById("pdfList");
+
+        for (let i = 0; i < pdfs_comunes.length; i++) {
+            const pdfItem = document.createElement("li");
+            pdfItem.textContent = pdfs_comunes[i];
+            pdfListElement.appendChild(pdfItem);
+        }
+    </script>  
+    
+    </div>
     <script>
       // Obtener y mostrar la placa almacenada en localStorage
-      const placaIngresada = localStorage.getItem("placaIngresada");
+      var placaIngresada = localStorage.getItem("placaIngresada");
       if (placaIngresada) {
         document.getElementById("placaMostrada").textContent = placaIngresada;
       }
