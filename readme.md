@@ -44,7 +44,9 @@ Esta es una aplicación web desarrollada con Flask y Jinja, y utiliza el framewo
    python app.py
    ```
 
-4. Abre tu navegador y ve a `http://localhost:5000` para ver la aplicación en acción.
+4. Deberia mostrar una salida asi en la terminal:
+
+   ![Terminal](images/terminal.png) 5. Abre tu navegador y ve a `http://localhost:5000` para ver la aplicación en acción.
    En caso se ejecute con normalidad, deberia direccionarte al login de la App.
 
 ![Alt text](images/image.png)
