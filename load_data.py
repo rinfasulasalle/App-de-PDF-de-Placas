@@ -19,5 +19,5 @@ def get_archivos_pdf(directorio):
                 archivos_pdf.append(archivo)  # Agrego el nombre del archivo a la lista
     return archivos_pdf
 # ----------------------------------------------------------
-print(get_matriculas('pdf/DATA LICENCIAS DE CONDUCIR DUMMIE.csv'))
-print(get_archivos_pdf('pdf'))
+LICENCIAS = get_matriculas('pdf/DATA LICENCIAS DE CONDUCIR DUMMIE.csv')
+PDFS = (get_archivos_pdf('pdf'))
