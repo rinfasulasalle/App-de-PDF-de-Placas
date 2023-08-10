@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{data.titulo}}</title>
+  </head>
+  <body>
+    <h2>{{data.titulo}}</h2>
+
+    <form>
+      <label for="codigo">Placa de auto:</label><br />
+      <input
+        type="text"
+        id="codigo"
+        name="codigo"
+        placeholder="XX0000"
+        required
+      />
+      <br /><br />
+      <input type="submit" value="Iniciar sesión" />
+    </form>
+    {{data.licencias}}
+  </body>
+</html>
