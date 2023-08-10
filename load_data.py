@@ -1,4 +1,4 @@
-def leer_archivo(nombre_archivo):
+def get_matriculas(nombre_archivo):
     # Lista para almacenar los códigos
     codigos = []
 
@@ -11,4 +11,18 @@ def leer_archivo(nombre_archivo):
         codigos = [linea.strip() for linea in lineas]
 
     return codigos
-print(leer_archivo('licencias.csv'))
+print(get_matriculas('pdf/DATA LICENCIAS DE CONDUCIR DUMMIE.csv'))
+
+# ----------------------------------------------------------
+import os
+
+def get_archivos_pdf(directorio):
+    archivos_pdf = []
+
+    for ruta_actual, _, archivos in os.walk(directorio):
+        for archivo in archivos:
+            if archivo.lower().endswith(".pdf"):
+                archivos_pdf.append(os.path.join(archivo))
+
+    return archivos_pdf
+print(get_archivos_pdf('pdf'))
