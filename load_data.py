@@ -1,28 +1,23 @@
 def get_matriculas(nombre_archivo):
     # Lista para almacenar los códigos
     codigos = []
-
-    # Abre el archivo CSV en modo lectura
+    # Abro el archivo CSV en modo lectura
     with open(nombre_archivo, 'r') as archivo_csv:
-        # Lee todas las líneas del archivo
+        # Leo todas las líneas del archivo
         lineas = archivo_csv.readlines()
-
-        # Itera sobre las líneas y elimina los espacios en blanco
+        # Itero sobre las líneas y elimina los espacios en blanco
         codigos = [linea.strip() for linea in lineas]
-
     return codigos
-print(get_matriculas('pdf/DATA LICENCIAS DE CONDUCIR DUMMIE.csv'))
-
 # ----------------------------------------------------------
 import os
-
 def get_archivos_pdf(directorio):
-    archivos_pdf = []
-
-    for ruta_actual, _, archivos in os.walk(directorio):
+    archivos_pdf = []  # Creo una lista para almacenar los nombres de archivos PDF encontrados
+    # Itero a través de los directorios y archivos utilizando os.walk
+    for _, _, archivos in os.walk(directorio):
         for archivo in archivos:
-            if archivo.lower().endswith(".pdf"):
-                archivos_pdf.append(os.path.join(archivo))
-
+            if archivo.lower().endswith(".pdf"):  # Compruebo si el archivo tiene extensión .pdf
+                archivos_pdf.append(archivo)  # Agrego el nombre del archivo a la lista
     return archivos_pdf
+# ----------------------------------------------------------
+print(get_matriculas('pdf/DATA LICENCIAS DE CONDUCIR DUMMIE.csv'))
 print(get_archivos_pdf('pdf'))
