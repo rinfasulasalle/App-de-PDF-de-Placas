@@ -49,13 +49,12 @@ Esta es una aplicación web desarrollada con Flask y Jinja, y utiliza el framewo
    ![Terminal](images/terminal.png) 5. Abre tu navegador y ve a `http://localhost:5000` para ver la aplicación en acción.
    En caso se ejecute con normalidad, deberia direccionarte al login de la App.
 
-![Alt text](images/image.png)
+![Alt text](images/image.png)+
 
 ## Video demo
 
-<video controls width="500">
-  <source src="/images/demo.mkv" type="video/x-matroska">
-</video>
+[Ver video mkv](images\demo.mkv)
+[Ver video en Youtube](https://www.youtube.com/watch?v=Fs98qZke4I8&t=5s)
 
 ## Estructura del Proyecto
 
