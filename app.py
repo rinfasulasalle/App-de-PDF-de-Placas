@@ -1,50 +1,32 @@
 from flask import Flask, render_template
 from load_data import LICENCIAS,PDFS,LOGO, NOMBREAPP
 app = Flask(__name__)
-
-@app.route('/')
-def index():
-    # return "<h1>Hola Mundo! </h1>"
-    data = {
+data = {
         'nombreApp': NOMBREAPP,
-        'titulo': 'Inicio',
+        'titulo': '',
         'logo': LOGO,
         'licencias': LICENCIAS,
         'pdfs': PDFS
     }
+@app.route('/')
+def index():
+    # return "<h1>Hola Mundo! </h1>"
+    data['titulo'] =  'Inicio'
     return render_template('login.html',data= data)
 
 @app.route('/login')
 def login():
-    data = {
-        'nombreApp': NOMBREAPP,
-        'titulo': 'Login de MyApp',
-        'logo': LOGO,
-        'licencias': LICENCIAS,
-        'pdfs': PDFS
-    }
+    data['titulo'] = 'Login de MyApp'
     return render_template('login.html',data= data)
 
 @app.route('/home')
 def home():
-    data = {
-        'nombreApp': NOMBREAPP,
-        'titulo': 'Datos Cargados',
-        'logo': LOGO,
-        'licencias': LICENCIAS,
-        'pdfs': PDFS
-    }
+    data['titulo'] = 'Datos Cargados'
     return render_template("home.html",data= data)
 
 @app.route('/asociados')
 def asociados():
-    data = {
-        'nombreApp': NOMBREAPP,
-        'titulo': 'PDFs asociados',
-        'logo': LOGO,
-        'licencias': LICENCIAS,
-        'pdfs': PDFS
-    }
+    data['titulo'] = 'PDF Asociacos'
     return render_template("asociados.html",data= data)
 
 

@@ -34,7 +34,8 @@
           const licenciasPermitidas = "{{data.licencias}}";
 
           if (licenciasPermitidas.includes(placa)) {
-            localStorage.setItem("placa", placa);
+            // Guardar la placa en localStorage para acceder desde otras páginas
+            localStorage.setItem("placaIngresada", placa);
             window.location.href = "home";
           } else {
             alert("Placa no válida. Inténtalo de nuevo.");

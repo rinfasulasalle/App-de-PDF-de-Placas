@@ -10,6 +10,7 @@
       <ul>
         <li><a href="home">Inicio</a></li>
         <li><a href="asociados">Asociados</a></li>
+        <li>Licencia: <span id="placaMostrada"></span></li>
         <li><a href="login" id="logout">Cerrar Sesion</a></li>
       </ul>
     </nav>
@@ -26,13 +27,19 @@
     {% endfor %}
 
     <script>
-      // Agregar un evento al botón "Cerrar Sesión"
       document
         .getElementById("logout")
         .addEventListener("click", function (event) {
           event.preventDefault();
+          localStorage.removeItem("placaIngresada"); // Limpiar la placa almacenada en el logout
           window.location.href = "login";
         });
+
+      // Obtener y mostrar la placa almacenada en localStorage
+      const placaIngresada = localStorage.getItem("placaIngresada");
+      if (placaIngresada) {
+        document.getElementById("placaMostrada").textContent = placaIngresada;
+      }
     </script>
   </body>
 </html>

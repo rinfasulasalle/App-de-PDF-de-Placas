@@ -5,5 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{data.titulo}}</title>
   </head>
-  <body></body>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="home">Inicio</a></li>
+        <li><a href="asociados">Asociados</a></li>
+        <li>Licencia: <span id="placaMostrada"></span></li>
+        <li><a href="login" id="logout">Cerrar Sesion</a></li>
+      </ul>
+    </nav>
+    <h2>Bienvenido, <span id="placaMostrada"></span></h2>
+    <p>Los PDF asociados a su lincencia son:</p>
+    <!-- Quiero mostrar los pdfs que coincidan con  placaMostrada, los pdfs estan en data.pdfs-->
+    <script>
+      // Obtener y mostrar la placa almacenada en localStorage
+      const placaIngresada = localStorage.getItem("placaIngresada");
+      if (placaIngresada) {
+        document.getElementById("placaMostrada").textContent = placaIngresada;
+      }
+    </script>
+  </body>
 </html>
