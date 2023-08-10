@@ -15,15 +15,12 @@ pdf_directorio = os.path.join(app.root_path, 'pdf')
 @app.route('/')
 def index():
     pdf_files = [pdf for pdf in os.listdir(pdf_directorio) if pdf.endswith('.pdf')]
-    print(pdf_files)
     return render_template('login.html',data=data, pdf_files=pdf_files)
 
 @app.route('/download/<filename>')
 def download_pdf(filename):
     if filename.endswith('.pdf'):
         return send_from_directory(pdf_directorio, filename, as_attachment=True)
-    else:
-        return "Archivo no válido", 404
 
 @app.route('/login')
 def login():
