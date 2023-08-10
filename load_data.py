@@ -21,4 +21,4 @@ def get_archivos_pdf(directorio):
 # ----------------------------------------------------------
 LICENCIAS = get_matriculas('pdf/DATA LICENCIAS DE CONDUCIR DUMMIE.csv')
 PDFS = (get_archivos_pdf('pdf'))
-LOGO = 'https://play-lh.googleusercontent.com/0XXTsNgg5RXGqoDMxwDHpG7A_UlImfGs0CK3jcnm5isWkO4CEz5DP17Pkz46JCihyN4'
+LOGO = 'https://store-images.s-microsoft.com/image/apps.31887.13527552335205219.79bdc359-aeae-43cd-ac4a-a9b8c2321785.972ea833-efd0-4edd-b0dc-20ea591f449f'

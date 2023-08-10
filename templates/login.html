@@ -1,23 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>{{data.titulo}}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión</title>
+    <!-- Agrega los enlaces a los archivos CSS de Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h2>{{data.titulo}}</h2>
+    <div class="container mt-5">
+      <h1 class="row justify-content-center">{{data.titulo}}</h1>
+      <img src="{{data.logo}}" class="rounded mx-auto d-block" />
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <h2 class="mb-3">Iniciar Sesión</h2>
+          <form id="login-form">
+            <div class="mb-3">
+              <label for="placa" class="form-label">Placa del Vehículo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="placa"
+                placeholder="XX-0000"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Iniciar Sesión
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">{{data.licencias}}</div>
 
-    <form>
-      <label for="codigo">Placa de auto:</label><br />
-      <input
-        type="text"
-        id="codigo"
-        name="codigo"
-        placeholder="XX0000"
-        required
-      />
-      <br /><br />
-      <input type="submit" value="Iniciar sesión" />
-    </form>
-    {{data.licencias}}
+    <!-- Agrega el enlace al archivo JS de Bootstrap y tu propio script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Obtiene el valor ingresado en el campo de la placa
+          const placa = document.getElementById("placa").value;
+
+          const licenciasPermitidas = "{{data.licencias}}";
+
+          // Verifico si la placa ingresada está en las licencias permitidas
+          if (licenciasPermitidas.includes(placa)) {
+            // Redireccionando
+            window.location.href = "home";
+          } else {
+            alert("Placa no válida. Inténtalo de nuevo.");
+          }
+        });
+    </script>
   </body>
 </html>

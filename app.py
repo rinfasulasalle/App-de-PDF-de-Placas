@@ -23,6 +23,15 @@ def login():
     }
     return render_template('login.html',data= data)
 
+@app.route('/home')
+def home():
+    data = {
+        'titulo': 'PDFS Asociados',
+        'logo': LOGO,
+        'licencias': LICENCIAS,
+        'pdfs': PDFS
+    }
+    return render_template("home.html",data= data)
 if __name__ ==  '__main__':
     app.run(debug= True) # port 5000 por defecto
 
