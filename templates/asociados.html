@@ -6,13 +6,6 @@
   <title>{{data.titulo}}</title>
 </head>
 <body>
-    <script>
-        // Obtener y mostrar la placa almacenada en localStorage
-        var placaIngresada = localStorage.getItem("placaIngresada");
-        if (placaIngresada) {
-          document.getElementById("placaMostrada").textContent = placaIngresada;
-        }
-      </script>
     <nav>
         <ul>
         <li><a href="home">Inicio</a></li>
@@ -26,6 +19,12 @@
   <p>Los PDF asociados a su licencia son:</p>
   <ul id="pdfList"></ul>
   <script>
+    // Obtener y mostrar la placa almacenada en localStorage
+    var placaIngresada = localStorage.getItem("placaIngresada");
+    if (placaIngresada) {
+      document.getElementById("placaMostrada").textContent = placaIngresada;
+    }
+    // -------------------  PDF asociados
     const placaCargada = localStorage.getItem("placaIngresada"); // Placa ingresada
     const pdfs = JSON.parse('{{ data.pdfs | tojson }}'); // Lista de nombres de pdfs
     const pdfs_comunes = [];
@@ -49,7 +48,5 @@
     }
   </script>
   </div>
-
-  
 </body>
 </html>
