@@ -1,7 +1,7 @@
 import time
 from load_data import get_archivos_pdf, get_archivos_pdf_recursivo
 
-def medir_tiempo(funcion, *args, repeticiones=10000):
+def medir_tiempo(funcion, *args, repeticiones=200):
     tiempos = []
     for _ in range(repeticiones):
         inicio = time.time()
