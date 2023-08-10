@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{data.titulo}}</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{data.titulo}}</title>
+</head>
+<body>
+    <script>
+        // Obtener y mostrar la placa almacenada en localStorage
+        var placaIngresada = localStorage.getItem("placaIngresada");
+        if (placaIngresada) {
+          document.getElementById("placaMostrada").textContent = placaIngresada;
+        }
+      </script>
     <nav>
-      <ul>
+        <ul>
         <li><a href="home">Inicio</a></li>
         <li><a href="asociados">Asociados</a></li>
         <li>Licencia: <span id="placaMostrada"></span></li>
         <li><a href="login" id="logout">Cerrar Sesion</a></li>
-      </ul>
+        </ul>
     </nav>
-    <h2>Bienvenido, <span id="placaMostrada"></span></h2>
-    
-    <p>Los PDF asociados a su licencia son:</p>
-    <ul id="pdfList"></ul>
-    <script>
-        const placaCargada = localStorage.getItem("placaIngresada"); // Placa ingresada
-        const pdfs = JSON.parse('{{ data.pdfs | tojson }}'); // Lista de nombres de pdfs
-        const pdfs_comunes = []
-        
-        for (let i in pdfs) {
-            if (pdfs[i].includes(placaCargada)) { 
-                pdfs_comunes.push(pdfs[i]);
-            }
-        }
+  <h2>Bienvenido, <span id="placaMostrada"></span></h2>
 
-        const pdfListElement = document.getElementById("pdfList");
+  <p>Los PDF asociados a su licencia son:</p>
+  <ul id="pdfList"></ul>
+  <script>
+    const placaCargada = localStorage.getItem("placaIngresada"); // Placa ingresada
+    const pdfs = JSON.parse('{{ data.pdfs | tojson }}'); // Lista de nombres de pdfs
+    const pdfs_comunes = [];
 
-        for (let i = 0; i < pdfs_comunes.length; i++) {
-            const pdfItem = document.createElement("li");
-            pdfItem.textContent = pdfs_comunes[i];
-            pdfListElement.appendChild(pdfItem);
-        }
-    </script> 
-    </div> 
-
-    <embed src="/pdf/BM-8492-0.pdf" type="application/pdf" width="600px" height="800px"/>
-    <script>
-      // Obtener y mostrar la placa almacenada en localStorage
-      var placaIngresada = localStorage.getItem("placaIngresada");
-      if (placaIngresada) {
-        document.getElementById("placaMostrada").textContent = placaIngresada;
+    for (let i in pdfs) {
+      if (pdfs[i].includes(placaCargada)) {
+        pdfs_comunes.push(pdfs[i]);
       }
-    </script>
-  </body>
+    }
+
+    const pdfListElement = document.getElementById("pdfList");
+
+    for (let i = 0; i < pdfs_comunes.length; i++) {
+      const pdfItem = document.createElement("li");
+      const pdfLink = document.createElement("a");
+      pdfLink.href = `/download/${pdfs_comunes[i]}`;
+      pdfLink.textContent = pdfs_comunes[i];
+      pdfLink.download = pdfs_comunes[i];
+      pdfItem.appendChild(pdfLink);
+      pdfListElement.appendChild(pdfItem);
+    }
+  </script>
+  </div>
+
+  
+</body>
 </html>

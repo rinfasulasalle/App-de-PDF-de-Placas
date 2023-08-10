@@ -1,18 +1,29 @@
-from flask import Flask, render_template
+import os
+from flask import Flask, render_template, send_from_directory
 from load_data import LICENCIAS,PDFS,LOGO, NOMBREAPP
 app = Flask(__name__)
 data = {
         'nombreApp': NOMBREAPP,
-        'titulo': '',
+        'titulo': 'Default',
         'logo': LOGO,
         'licencias': LICENCIAS,
         'pdfs': PDFS
     }
+# Directorio donde se encuentran los archivos PDF
+pdf_directorio = os.path.join(app.root_path, 'pdf')
+# --------------------------------------
 @app.route('/')
 def index():
-    # return "<h1>Hola Mundo! </h1>"
-    data['titulo'] =  'Inicio'
-    return render_template('login.html',data= data)
+    pdf_files = [pdf for pdf in os.listdir(pdf_directorio) if pdf.endswith('.pdf')]
+    print(pdf_files)
+    return render_template('login.html',data=data, pdf_files=pdf_files)
+
+@app.route('/download/<filename>')
+def download_pdf(filename):
+    if filename.endswith('.pdf'):
+        return send_from_directory(pdf_directorio, filename, as_attachment=True)
+    else:
+        return "Archivo no válido", 404
 
 @app.route('/login')
 def login():
