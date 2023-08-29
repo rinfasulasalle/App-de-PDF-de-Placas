@@ -12,7 +12,7 @@ Esta es una aplicación web desarrollada con Flask y Jinja, y utiliza el framewo
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/tuusuario/mi-aplicacion-web.git
+   git clone https://github.com/rinfasulasalle/mi-aplicacion-web.git
    ```
 
 2. Crea y activa un entorno virtual de Anaconda llamado "web":
